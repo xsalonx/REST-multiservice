@@ -1,0 +1,234 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+}
+
+html {
+  font-size: 10px;
+  background: url("../images/index-background.jpg") fixed;
+}
+
+
+body {
+  width: 70%;
+  margin: 0 auto;
+}
+header {
+  font-size: 60px;
+
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #09aaff;
+  text-decoration-skip: box-decoration;
+
+  text-shadow: -2px 4px 4px green, 4px 4px 4px blue;
+
+}
+
+h1, h2, h3 {
+  color: #2a2a2a;
+}
+
+p, input, li {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #2a2a2a;
+}
+
+p:not(footer p)::first-line {
+  color: red
+}
+
+a {
+  text-decoration-line: none;
+}
+
+a:link {
+  color: darkblue;
+}
+
+a:visited {
+  color: darkblue;
+}
+
+a:hover {
+  color: darkred;
+}
+
+a:active {
+  color: crimson;
+}
+
+h1 {
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+hgroup {
+  margin-bottom: 15px;;
+}
+hgroup > h1 {
+  margin-bottom:  1px;
+}
+hgroup > h3 {
+  font: 2rem "Times New Roman";
+  font-style: italic;
+  text-align: center;
+}
+
+p, li {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+
+nav, article, aside, footer {
+  background-color: white;
+  padding: 1%;
+}
+
+nav {
+  opacity: 0.8;
+  height: 200px;
+  background-color: moccasin;
+
+  margin-bottom: 10px;
+}
+
+.box {
+  display: flex;
+}
+
+
+.box > div {
+  border: 5px double red;
+  border-radius: 50px;
+  flex: 1;
+}
+.box > div:hover {
+  background-color: wheat;
+  cursor: pointer;
+}
+
+.box > div > ul {
+  padding-left: 10px;
+}
+.box > div > ul > li {
+  margin-left: -3px;
+  display: inline;
+  border: 1px solid black;
+}
+
+nav ul {
+  padding: 1px;
+  list-style-type: none;
+  margin: 10px;
+  flex: 6;
+  display: inline;
+}
+
+nav li {
+  display: inline;
+  text-align: left;
+  flex: 1;
+}
+
+.nav-opts {
+  display: inline;
+}
+
+nav a {
+  display: inline-block;
+  font-size: 2rem;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+
+nav form {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+input {
+  font-size: 1.6rem;
+  height: 32px;
+}
+
+.search-input {
+  flex: 20;
+}
+input[type="search"] {
+  width: 100%;
+}
+
+input[type="submit"] {
+  flex: 1;
+  margin-left: 1rem;
+  background: #333;
+  border: 0;
+  color: white;
+}
+
+
+main {
+  display: block;
+}
+
+
+
+article {
+  flex: 10;
+}
+
+aside {
+  opacity: 0.8;
+  width: calc(100% - 10px);
+  background-color: moccasin;
+}
+@media only screen and (min-width: 1000px) {
+  main, nav ul {
+    display: flex;
+  }
+  nav {
+    height: 110px;
+    flex-direction: row;
+    display: flex;
+  }
+  nav > ul > li {
+    display: inline;
+  }
+  aside {
+    flex: 2;
+    margin-left: 10px;
+  }
+
+}
+
+
+aside li {
+  padding-bottom: 10px;
+}
+
+footer {
+  margin-top: 10px;
+}
+
+figcaption {
+  font: 30px "Times New Roman";
+}
