@@ -7,6 +7,11 @@
     <title>rozp-REST</title>
     <link rel="stylesheet" href="stylesheets/index.css">
 
+    <script type="module">
+        import Model from "./javascripts/Model.js";
+        window.model = new Model();
+    </script>
+
 </head>
 <body>
 <nav>
@@ -15,60 +20,24 @@
             <li><a href="/">books and authors</a></li>
         </ul>
     </div>
-    <form>
-        <label class="search-input">
-            <input type="search" name="q" placeholder="quaero">
-        </label>
-        <input type="submit" value="i!">
-    </form>
 </nav>
 
 <main>
     <article>
-        <hgroup>
-            <h2>Primilius carta</h2>
-            <h3>discipulus experimenta</h3>
-        </hgroup>
 
-
+        <h2>Main</h2>
         <section id="main-section">
-
-            <p> libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia
-                consectetur.</p>
-
+            <button type="button" onclick="model.fetchAuthorData()">submit</button>
+            <div>
+                <ul id="input-forms-list" class="input-forms-list">
+                </ul>
+            </div>
         </section>
 
-        <script>
-            const m_section = document.getElementById("main-section")
-            const table_link = document.getElementById("herbis-table")
-            table_link.addEventListener("click", show_table)
-            const fr = new FileReader();
-            function show_table() {
-                fetch("herbis-table.html")
-                    .then(response => response.text())
-                    .then(data => {
-                        m_section.innerHTML = data;
-                    });
-            }
-        </script>
-
-
-        <script>al = function (p) {
-            alert(p + "asdc")
-        }</script>
-        <button type="button" onclick="al('Hello World!')">Click Me!</button>
-
-
-
-
+        <section>
+            <div id="tables-div"></div>
+        </section>
     </article>
-
-    <aside>
-        <h2>Quod implicus</h2>
-        <ul>
-        </ul>
-    </aside>
-
 
 </main>
 
