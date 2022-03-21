@@ -1,9 +1,15 @@
 
-const omdbapi = require("./serv/omdbapi.js")
+const fs = require('fs')
+
 
 class ServicesAuth {
     constructor() {
-        this.omdbapi = omdbapi;
+        try {
+            this.omdbapi = fs.readFileSync("keys/serv/omdbapi.urlAuthPart");
+        } catch (e) {
+            console.error("you need auth prt of url")
+            process.exit(1)
+        }
     }
 }
 
