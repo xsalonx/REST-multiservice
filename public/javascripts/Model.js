@@ -4,8 +4,8 @@ export default class Model {
 
         const pparser = (v) => v.split(" ").filter(v => v.length > 0).join("%20")
         this.inputsConfig = {
-            "lastName": pparser,
             "firstName": pparser,
+            "lastName": pparser,
             "keywords": pparser
         }
 
@@ -41,10 +41,12 @@ export default class Model {
         }
 
         const endpoint = "/api/get-data/?" + params
+        this.setLoading()
         fetch(endpoint)
             .then(response => response.json())
             .then(dataList => {
                 console.log(dataList)
+                this.unsetLoading()
                 this.createTables(dataList)
 
             })
@@ -57,11 +59,37 @@ export default class Model {
     }
 
     createTable(dataObjs) {
-        const columns = Object.entries(dataObjs[0]).map(([k, v]) => k)
-        const intoTr = (s) => `<tr>${s}</tr>`
-        const tableHeader = intoTr(columns.map(n => `<th>${n}</th>`))
-        const rows = dataObjs.map(obj => intoTr(columns.map(n => `<th>${obj[n]}</th>`)))
 
-        return `<table>${tableHeader}${rows.join("")}</table>`
+        const title = dataObjs.title
+        const data = dataObjs.data
+        try {
+            if (! data?.length > 0)
+                return ''
+            const columns = Object.entries(data[0]).map(([k, v]) => k)
+            const intoTr = (s) => `<tr>${s}</tr>`
+            const tableHeader = intoTr(columns.map(n => `<th>${n}</th>`))
+            const specialHTMLAdder = (s) => {
+                if (s.includes("jpg"))
+                    return `<img src="${s}" alt=${s}>`
+                else
+                    return s
+            }
+            const rows = data.map(obj => intoTr(columns.map(n => `<td>${specialHTMLAdder(obj[n])}</td>`)))
+
+            return `<table><caption>${title}</caption>${tableHeader}${rows.join("")}</table>`
+        } catch (e) {
+            console.log(e)
+            alert(e)
+            return ''
+        }
+
+    }
+
+    setLoading() {
+        document.getElementById("tables-div").innerHTML = "<p>Loading data...</p>"
+        //TODO
+    }
+    unsetLoading() {
+        //TODO
     }
 }

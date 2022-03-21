@@ -134,3 +134,35 @@ footer {
 figcaption {
   font: 30px "Times New Roman";
 }
+
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  font-size: 1.2rem;
+}
+
+th {
+  font-size: 1.6rem;
+}
+
+tr {
+  border: solid sienna 2px;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table > caption {
+  border: solid black 2px;
+  font-size: 3rem;
+}
+
+
+table { width: 100%; }
